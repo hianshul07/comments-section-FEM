@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Box, Flex, Button } from '@chakra-ui/react';
-import amyRobson from '../images/avatars/image-amyrobson.png';
 import iconReply from '../images/icon-reply.svg';
 import { useState } from 'react';
 
-const Comment = () => {
+const Comment = ({userName, profilePhoto, commentTime, comment}) => {
   const [count, setCount] = useState(0);
 
   const toggleCountInc = () => {
@@ -16,16 +15,14 @@ const Comment = () => {
   };
 
   return (
-    <Box className='m-4 p-8 shadow-xl rounded-md shadow-gray-300'>
+    <div className='m-4 p-8 shadow-xl rounded-md shadow-gray-300'>
       <Flex className=' items-center' justify={'start'} gap={4}>
-        <img src={amyRobson} alt='' className='w-16' />
-        <h1 className='text-2xl font-semibold'>amyrobson</h1>
-        <p className='text-gray-500 text-lg'>1 month ago</p>
+        <img src={profilePhoto} alt='' className='w-16' />
+        <h1 className='text-2xl font-semibold'>{userName}</h1>
+        <p className='text-gray-500 text-lg'>{commentTime}</p>
       </Flex>
       <p className='text-gray-500 text-lg mt-6'>
-        Impressive! Though it seems the drag feature could be improved. But
-        overall it looks incredible. You've nailed the design and the
-        responsiveness at various breakpoints works really well.
+        {comment}
       </p>
       <div className='flex items-center justify-between mt-6'>
         <div className='flex gap-4 p-2 w-1/5 rounded-xl justify-evenly items-center bg-[#edf2f7] '>
@@ -35,7 +32,7 @@ const Comment = () => {
           >
             +
           </button>
-          <p className='flex text-[#5151a2] text-xl font-bold justify-center'>
+          <p className='flex text-[#5357b6] text-xl font-bold justify-center'>
             {count}
           </p>
           <button
@@ -50,7 +47,7 @@ const Comment = () => {
           <p className='font-bold text-[#5357b6] text-2xl'>Reply</p>
         </div>
       </div>
-    </Box>
+    </div>
   );
 };
 export default Comment;
