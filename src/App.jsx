@@ -1,5 +1,6 @@
 import Comment from './components/Comment';
-import data from './data.json'
+import Reply from './components/Reply';
+import data from './data.json';
 
 // const data = {
 // 	amyRobson: {
@@ -25,23 +26,27 @@ const App = () => {
 		<div className='p-4'>
 			<Comment
 				profilePhoto={data.comments[0].user.image.png}
-        
 				userName={data.comments[0].user.username}
 				commentTime={data.comments[0].createdAt}
-				// comment={data.amyRobson.comment}
-				// intialLikes={data.amyRobson.likes}
+				comment={data.comments[0].content}
+				intialLikes={data.comments[0].score}
 			/>
-
-
-			{/* <Comment
-				profilePhoto={data.maxBlagun.profilePhoto}
-				userName={data.maxBlagun.userName}
-				commentTime={data.maxBlagun.commentTime}
-				comment={data.maxBlagun.comment}
-				intialLikes={data.maxBlagun.likes}
-			/> */}
+			<Comment
+				profilePhoto={data.comments[1].user.image.png}
+				userName={data.comments[1].user.username}
+				commentTime={data.comments[1].createdAt}
+				comment={data.comments[1].content}
+				intialLikes={data.comments[1].score}
+			/>
+			<Reply
+				profilePhoto={data.comments[1].replies[0].user.image.png}
+				userName={data.comments[1].replies[0].user.username}
+				commentTime={data.comments[1].replies[0].createdAt}
+				comment={data.comments[1].replies[0].content}
+				intialLikes={data.comments[1].replies[0].score}
+			/>
 		</div>
 	);
 };
-export default App;
 
+export default App;
